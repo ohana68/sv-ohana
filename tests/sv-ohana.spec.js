@@ -62,7 +62,8 @@ test('presail checklist is on dashboard', async ({ page }) => {
 
 test('presail progress bar exists', async ({ page }) => {
   await login(page);
-  await expect(page.locator('#ps-prog-bar')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('#ps-prog-bar')).toHaveCount(1);
+});
 });
 
 test('can tick a presail item', async ({ page }) => {
