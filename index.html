@@ -415,7 +415,293 @@ textarea.form-inp{resize:none;line-height:1.5;}
 .ni-lbl{font-size:8px;color:#8B949E !important;-webkit-text-fill-color:#8B949E !important;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
 .ni.a{color:#2EC4A8;} .ni.a .ni-lbl{color:#3FB68B !important;-webkit-text-fill-color:#3FB68B !important;}
 .ni-dot{width:4px;height:4px;border-radius:50%;background:#3FB68B;}
-</style>
+/* ═══════════════════════════════════════════════════
+   SV OHANA — VISUAL POLISH LAYER
+   Drop this into your <style> block AFTER existing CSS
+   ═══════════════════════════════════════════════════ */
+ 
+/* ── REFINED TYPOGRAPHY ── */
+/* Tighten monospace labels, add subtle tracking to headers */
+.vname { letter-spacing: -1px; }
+.vsub  { letter-spacing: 2.5px; opacity: 0.7; }
+.sl    { letter-spacing: 2.5px; font-size: 8px; opacity: 0.55; }
+ 
+/* ── GLASSMORPHISM CARDS ── */
+/* Add frosted glass depth to all cards */
+.eq-card, .svc-card, .bat-card, .fex-card, .snag-card, .log-entry, .smart-box {
+  background: rgba(22, 27, 34, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+ 
+/* Stat cards get a subtle inner glow */
+.sc, .sum-card {
+  background: rgba(22, 27, 34, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(255,255,255,0.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+ 
+/* Dashboard glass cards */
+.dg {
+  background: rgba(16, 22, 30, 0.55) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+}
+.dg-lt {
+  background: rgba(16, 22, 30, 0.45) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  border-radius: 13px !important;
+}
+ 
+/* ── SMOOTHER ANIMATIONS ── */
+/* Upgrade default transitions to spring-like cubic-bezier */
+.eq-card, .svc-card, .bat-card, .fex-card, .snag-card, .log-entry {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+}
+.eq-card:active, .svc-card:active, .fex-card:active, .snag-card:active {
+  transform: scale(0.975);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+ 
+/* Stagger animation — smoother easing */
+.stagger-child {
+  animation: fadeUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+ 
+/* Page transitions — add subtle fade */
+.page.a {
+  animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* ── IMPROVED PROGRESS BARS ── */
+/* Add gradient shine to progress bars */
+.pf {
+  background: linear-gradient(90deg, var(--teal), #4DD9A8) !important;
+  box-shadow: 0 0 8px rgba(63, 182, 139, 0.2);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pf-red {
+  background: linear-gradient(90deg, var(--red), #F06B6B) !important;
+  box-shadow: 0 0 8px rgba(226, 75, 74, 0.2);
+}
+.pf-amber {
+  background: linear-gradient(90deg, var(--amber), #F5B94E) !important;
+  box-shadow: 0 0 8px rgba(239, 159, 39, 0.2);
+}
+ 
+/* Pre-sail progress bar */
+.ps-prog-bar {
+  background: linear-gradient(90deg, var(--teal), #4DD9A8) !important;
+  box-shadow: 0 0 6px rgba(63, 182, 139, 0.15);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* SOC bar gradient */
+.d-soc-b, #vrm-soc-bar, #dash-soc-bar {
+  background: linear-gradient(90deg, #2EC4A8, #4DD9A8) !important;
+  box-shadow: 0 0 6px rgba(46, 196, 168, 0.15);
+}
+ 
+/* ── REFINED ALERTS ── */
+/* Softer alert backgrounds with better contrast */
+.a-red   { background: rgba(61, 20, 20, 0.7); border-color: rgba(226, 75, 74, 0.4); }
+.a-amber { background: rgba(61, 44, 10, 0.7); border-color: rgba(239, 159, 39, 0.4); }
+.a-teal  { background: rgba(28, 61, 48, 0.7); border-color: rgba(63, 182, 139, 0.4); }
+ 
+/* Dashboard alert rows — add hover lift */
+.d-srow {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              background 0.2s ease,
+              box-shadow 0.2s ease;
+  border-radius: 10px;
+  margin-bottom: 2px;
+}
+.d-srow:active {
+  transform: scale(0.98);
+  background: rgba(255,255,255,0.04);
+}
+ 
+/* ── BADGE REFINEMENT ── */
+/* Add subtle glow to service interval badges */
+.badge {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.b-red   { box-shadow: 0 0 10px rgba(226, 75, 74, 0.1), inset 0 1px 0 rgba(255,255,255,0.08); }
+.b-amber { box-shadow: 0 0 10px rgba(239, 159, 39, 0.1), inset 0 1px 0 rgba(255,255,255,0.08); }
+.b-teal  { box-shadow: 0 0 10px rgba(63, 182, 139, 0.1), inset 0 1px 0 rgba(255,255,255,0.08); }
+.b-blue  { box-shadow: 0 0 10px rgba(55, 138, 221, 0.1), inset 0 1px 0 rgba(255,255,255,0.08); }
+ 
+/* ── ENGINE SELECT CARDS ── */
+/* More pronounced active state */
+.eb {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 12px;
+}
+.eb.a {
+  border-color: var(--teal);
+  background: rgba(28, 33, 40, 0.8);
+  box-shadow: 0 0 20px rgba(63, 182, 139, 0.08), inset 0 1px 0 rgba(63, 182, 139, 0.1);
+}
+ 
+/* ── NAV BAR GLASS ── */
+/* Frosted glass nav bar on all screens */
+.nav-bar {
+  background: rgba(13, 17, 23, 0.88) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top-color: rgba(255,255,255,0.06) !important;
+}
+ 
+/* Active nav dot — subtle glow */
+.ni.a .ni-dot {
+  box-shadow: 0 0 8px rgba(63, 182, 139, 0.4);
+}
+ 
+/* ── CHECKBOX POLISH ── */
+/* Smoother checkbox transitions */
+.psi-box {
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+.psi-box.ck {
+  box-shadow: 0 0 8px rgba(63, 182, 139, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+ 
+/* ── BUTTONS ── */
+/* Primary button gets a subtle gradient */
+.login-btn, .pri-btn {
+  background: linear-gradient(135deg, #3FB68B, #34A07A) !important;
+  box-shadow: 0 2px 8px rgba(63, 182, 139, 0.2);
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.15s;
+}
+.login-btn:active, .pri-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(63, 182, 139, 0.3);
+}
+ 
+/* Add buttons — subtle border glow on hover */
+.add-btn {
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.add-btn:active {
+  transform: scale(0.97);
+  background: rgba(63, 182, 139, 0.08);
+}
+ 
+/* Hours save button */
+.hrs-btn {
+  border-radius: 7px;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* ── INPUT REFINEMENT ── */
+/* Softer focus glow on inputs */
+.form-inp:focus, .login-field input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(63, 182, 139, 0.08);
+}
+ 
+/* Hours input glow */
+.hrs-inp:focus {
+  text-shadow: 0 0 12px rgba(63, 182, 139, 0.2);
+}
+ 
+/* ── MODAL POLISH ── */
+/* Smooth modal entry */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+.modal {
+  animation: slideUpModal 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.4);
+}
+@keyframes slideUpModal {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+ 
+/* ── HEADER REFINEMENT ── */
+/* Subtle bottom fade on sticky header */
+.hdr {
+  background: linear-gradient(to bottom, #0D1117 85%, rgba(13, 17, 23, 0.95)) !important;
+}
+ 
+/* ── SCROLLBAR (for desktop) ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
+ 
+/* ── FILTER BUTTONS ── */
+.filt-btn {
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.filt-btn:active {
+  transform: scale(0.95);
+}
+.filt-btn.a {
+  box-shadow: 0 0 8px rgba(63, 182, 139, 0.1);
+}
+ 
+/* ── CALENDAR DAYS ── */
+.cal-day {
+  transition: all 0.15s ease;
+}
+.cal-day:active {
+  transform: scale(0.95);
+  background: rgba(255,255,255,0.04);
+}
+.cal-day.today {
+  box-shadow: 0 0 8px rgba(63, 182, 139, 0.12);
+}
+ 
+/* ── SUBTLE SECTION DIVIDERS ── */
+/* Replace hard borders with gradient fades where possible */
+.eq-rows { border-top-color: rgba(255,255,255,0.05); }
+.eq-row  { border-bottom-color: rgba(255,255,255,0.04); }
+ 
+/* ── SAVE BAR ── */
+.save-bar {
+  background: rgba(22, 27, 34, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(255,255,255,0.05);
+}
+ 
+/* ── STATUS PILL ── */
+.spill {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* ── YANMAR SCHEMATIC PANEL ── */
+#yanmar-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  animation: fadeUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+ 
+/* ── TOAST NOTIFICATION ── */
+#flash-toast {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+ </style>
 </head>
 <body>
 
